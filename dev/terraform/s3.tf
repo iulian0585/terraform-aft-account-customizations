@@ -1,9 +1,9 @@
 data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket" "the_bucket" {
-  bucket = "sandbox-${data.aws_caller_identity.current.account_id}"
+  bucket = "dev-${data.aws_caller_identity.current.account_id}"
   tags = {
     Name        = "My bucket"
-    Environment = "Sandbox"
+    Environment = "Dev"
   }
 }
