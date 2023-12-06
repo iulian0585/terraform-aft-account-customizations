@@ -7,3 +7,10 @@ resource "aws_s3_bucket" "terraform_state_bucket" {
     created_by = "terraform-aft-account-customizations"
   }
 }
+
+resource "aws_s3_bucket_versioning" "versioning_terraform_state_bucket" {
+  bucket = aws_s3_bucket.terraform_state_bucket.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
